@@ -203,6 +203,11 @@ environment:
 	assert.True(t, idx != -1, "did not find expected environment variable in output")
 }
 
+func TestExecWithFlags(t *testing.T) {
+	testProjectDir := setUpGodelTestAndDownload(t, testRootDir, godelTGZ, version)
+	execCommand(t, testProjectDir, "./godelw", "exec", "go", "list", "-m")
+}
+
 func TestTest(t *testing.T) {
 	testProjectDir := setUpGodelTestAndDownload(t, testRootDir, godelTGZ, version)
 	src := `package foo_test

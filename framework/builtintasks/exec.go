@@ -29,6 +29,7 @@ func ExecTask() godellauncher.Task {
 	return godellauncher.CobraCLITask(&cobra.Command{
 		Use:   "exec",
 		Short: "Executes given shell command using godel",
+		DisableFlagParsing: true,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if len(args) == 0 {
 				return errors.Errorf("no command specified")
